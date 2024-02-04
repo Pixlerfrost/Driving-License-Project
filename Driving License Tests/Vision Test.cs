@@ -53,8 +53,16 @@ namespace FullWindowsFormProject.Driving_License_Tests
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            //int AmountOfRecords = Convert.ToInt32(RecordsLbl.Text);
-            //if (AmountOfRecords != 0 && )
+            int AmountOfRecords = Convert.ToInt32(RecordsLbl.Text);
+            if (AmountOfRecords != 0 && clsAppointments.DidPersonPassVisionTest(_LocalDrivingLicenseID))
+            {
+                MessageBox.Show("This Person Already Passed The Vision Test!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                TakeVisionTest frm = new TakeVisionTest();
+                frm.ShowDialog();
+            }
         }
     }
 }
