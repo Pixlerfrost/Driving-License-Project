@@ -1,6 +1,6 @@
 ﻿namespace FullWindowsFormProject.Driving_License_Tests
 {
-    partial class Vision_Test
+    partial class DrivingLicenseTest
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label1 = new System.Windows.Forms.Label();
+            this.AppointmentLbl = new System.Windows.Forms.Label();
             this.AppointmentDataGrid = new System.Windows.Forms.DataGridView();
             this.AddBtn = new System.Windows.Forms.Button();
             this.CloseBtn = new System.Windows.Forms.Button();
@@ -43,15 +43,15 @@
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // AppointmentLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Rockwell", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(163, 58);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(451, 42);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Vision Test Appointments";
+            this.AppointmentLbl.AutoSize = true;
+            this.AppointmentLbl.Font = new System.Drawing.Font("Rockwell", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppointmentLbl.Location = new System.Drawing.Point(165, 57);
+            this.AppointmentLbl.Name = "AppointmentLbl";
+            this.AppointmentLbl.Size = new System.Drawing.Size(451, 42);
+            this.AppointmentLbl.TabIndex = 1;
+            this.AppointmentLbl.Text = "Vision Test Appointments";
             // 
             // AppointmentDataGrid
             // 
@@ -125,6 +125,7 @@
             this.takeTestToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(138, 52);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // editToolStripMenuItem
             // 
@@ -137,8 +138,9 @@
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
             this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(137, 24);
             this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
-            // Vision_Test
+            // DrivingLicenseTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,9 +151,9 @@
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.AppointmentDataGrid);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.AppointmentLbl);
             this.Controls.Add(this.licenseApplicationInfo1);
-            this.Name = "Vision_Test";
+            this.Name = "DrivingLicenseTest";
             this.Text = "Vision_Test";
             this.Load += new System.EventHandler(this.Vision_Test_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentDataGrid)).EndInit();
@@ -164,7 +166,7 @@
         #endregion
 
         private Driving_Licenses.Controls.LicenseApplicationInfo licenseApplicationInfo1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label AppointmentLbl;
         private System.Windows.Forms.DataGridView AppointmentDataGrid;
         private System.Windows.Forms.Button AddBtn;
         private System.Windows.Forms.Button CloseBtn;

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BuisnessAppointments;
 using BuisnessLayer;
 using BuisnessLocalDrivingLicenseApplication;
 using BuisnessUsers;
@@ -19,6 +20,9 @@ namespace FullWindowsFormProject.Driving_Licenses
         clsUsers _CurrentUser;
         string CurrentFilter = "";
         string CurrentKey = "";
+     
+
+        
         public ManageLocalDrivingApplications()
         {
             InitializeComponent();
@@ -53,6 +57,8 @@ namespace FullWindowsFormProject.Driving_Licenses
             _RefreshInfo();
             TextBoxFilter.Enabled = false;
             LocalDataGrid.ContextMenuStrip = contextMenuStrip1;
+            
+            
         }
 
         private void ManageLocalDrivingApplications_Load(object sender, EventArgs e)
@@ -96,14 +102,64 @@ namespace FullWindowsFormProject.Driving_Licenses
 
         private void scheduleVisionTestsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Vision_Test frm = new Vision_Test((int)LocalDataGrid.CurrentRow.Cells[0].Value, _CurrentUser);
+            DrivingLicenseTest frm = new DrivingLicenseTest((int)LocalDataGrid.CurrentRow.Cells[0].Value, _CurrentUser, (int)LocalDataGrid.CurrentRow.Cells[5].Value);
             frm.ShowDialog();
+            _RefreshInfo();
         }
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ShowLicenseApplicationDetails frm = new ShowLicenseApplicationDetails((int)LocalDataGrid.CurrentRow.Cells[0].Value, _CurrentUser);
             frm.ShowDialog();
+        }
+
+       
+
+        
+        
+        private void scheduleTestsToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        {
+            int PassedTestCount = (int)LocalDataGrid.CurrentRow.Cells[5].Value;
+            if (PassedTestCount == 0)
+            {
+                scheduleVisionTestsToolStripMenuItem.Enabled = true;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else if (PassedTestCount == 1)
+            {
+                scheduleVisionTestsToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = true;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else if (PassedTestCount == 2)
+            {
+                scheduleVisionTestsToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = true;
+            }
+            else if (PassedTestCount == 3)
+            {
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleVisionTestsToolStripMenuItem.Enabled = false;
+            }
+
+
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DrivingLicenseTest frm = new DrivingLicenseTest((int)LocalDataGrid.CurrentRow.Cells[0].Value, _CurrentUser, (int)LocalDataGrid.CurrentRow.Cells[5].Value);
+            frm.ShowDialog();
+            _RefreshInfo();
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DrivingLicenseTest frm = new DrivingLicenseTest((int)LocalDataGrid.CurrentRow.Cells[0].Value, _CurrentUser, (int)LocalDataGrid.CurrentRow.Cells[5].Value);
+            frm.ShowDialog();
+            _RefreshInfo();
         }
     }
 }
