@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\DrivingLicenseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenseFrm.Designer.cs">
+      <DependentUpon>DrivingLicenseFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\EditApplicationTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="Driving License Tests\DrivingLicenseTests.Designer.cs">
       <DependentUpon>DrivingLicenseTests.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Driving Licenses\Controls\DriversLicenseInfoCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Driving Licenses\Controls\DriversLicenseInfoCtrl.Designer.cs">
+      <DependentUpon>DriversLicenseInfoCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="Driving Licenses\Controls\LicenseApplicationInfo.cs">
       <SubType>UserControl</SubType>
@@ -198,6 +210,9 @@
     <Compile Include="Users\ShowUserDetails.Designer.cs">
       <DependentUpon>ShowUserDetails.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\DrivingLicenseFrm.resx">
+      <DependentUpon>DrivingLicenseFrm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\EditApplicationTypes.resx">
       <DependentUpon>EditApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Driving License Tests\DrivingLicenseTests.resx">
       <DependentUpon>DrivingLicenseTests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Driving Licenses\Controls\DriversLicenseInfoCtrl.resx">
+      <DependentUpon>DriversLicenseInfoCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Driving Licenses\Controls\LicenseApplicationInfo.resx">
       <DependentUpon>LicenseApplicationInfo.cs</DependentUpon>

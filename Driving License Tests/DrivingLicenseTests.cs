@@ -130,7 +130,7 @@ namespace FullWindowsFormProject.Driving_License_Tests
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TakeVisionTest frm = new TakeVisionTest(_LocalDrivingLicenseID, (int)AppointmentDataGrid.CurrentRow.Cells[0].Value, _CurrentUser);
+            TakeVisionTest frm = new TakeVisionTest(_LocalDrivingLicenseID, (int)AppointmentDataGrid.CurrentRow.Cells[0].Value, _CurrentUser, _TestTypeID);
             frm.ShowDialog();
             _RefreshInfo(_LocalDrivingLicenseID);
         }
@@ -139,12 +139,12 @@ namespace FullWindowsFormProject.Driving_License_Tests
         {
             if (clsAppointments.IsAppointmentLocked((int)AppointmentDataGrid.CurrentRow.Cells[0].Value))
             {
-                editToolStripMenuItem.Enabled = false;
+               
                 takeTestToolStripMenuItem.Enabled = false;
             }
             else if(!clsAppointments.IsAppointmentLocked((int)AppointmentDataGrid.CurrentRow.Cells[0].Value))
             {
-                editToolStripMenuItem.Enabled = true;
+                
                 takeTestToolStripMenuItem.Enabled = true;
             }
         }

@@ -1,4 +1,5 @@
-﻿using BuisnessAppointments;
+﻿using BuisnessApplications;
+using BuisnessAppointments;
 using BuisnessLocalDrivingLicenseApplication;
 using BuisnessTest;
 using BuisnessUsers;
@@ -18,16 +19,18 @@ namespace FullWindowsFormProject.Driving_License_Tests
     {
         private int _LocalDrivingLicenseApplicationID = -1;
         private int _TestAppointmentID = -1;
+        int _TestTypeID = -1;
         clsLocalDrivingLicenseApplication _LocalDrivingLicenseApplication;
         clsAppointments _Appointment;
         clsTest _Test;
         clsUsers CurrentUser;
-        public TakeVisionTest(int LocalDrivingLicenseApplicationID, int AppointmentID, clsUsers User)
+        public TakeVisionTest(int LocalDrivingLicenseApplicationID, int AppointmentID, clsUsers User, int TestTypeID)
         {
             InitializeComponent();
             _LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             _TestAppointmentID = AppointmentID;
             CurrentUser = User;
+            _TestTypeID = TestTypeID;
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -54,6 +57,8 @@ namespace FullWindowsFormProject.Driving_License_Tests
             _Onload();
         }
 
+
+
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             _Test = new clsTest();
@@ -72,6 +77,7 @@ namespace FullWindowsFormProject.Driving_License_Tests
                 MessageBox.Show("Test Info Saved Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TestIDLbl.Text = _Test.TestID.ToString();
                 _Appointment.IsLocked = true;
+               
                 _Appointment.Save();
                 this.Close();
             }
